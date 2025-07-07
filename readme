@@ -1,0 +1,17 @@
+i created a startup program for termux with using termux api!
+
+put all your startup executables into exec directory. Do not forget to make them
+runnable with chmod!
+
+example: 
+chmod +x exec/*
+
+you can add your extensions to the path extensions and call them in the startup.sh file.
+
+for opening new session run $NEW
+
+for configure the options to run executables or print yourself to the console:
+run nano $CONF
+then change the #variable section.
+note: the value '1' is standing for true, '0' is representing value false.
+

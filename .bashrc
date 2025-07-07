@@ -1,0 +1,1 @@
+bash /data/data/com.termux/files/home/startup/startup.sh
