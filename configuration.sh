@@ -9,14 +9,14 @@ safe_mkdir() {
 
 
 #directories
-safe_mkdir $HOME/startup
+safe_mkdir $HOME/termux-startup
 safe_mkdir $HOME/temp
 safe_mkdir $HOME/temp/session
 safe_mkdir $HOME/temp/session/img
 
 
 # paths
-export STARTUP="$HOME/startup"
+export STARTUP="$HOME/termux-startup"
 export TMP="$HOME/temp"
 export CONF="$STARTUP/configuration.sh"
 
