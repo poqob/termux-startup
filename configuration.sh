@@ -28,7 +28,7 @@ export RUN_EXECUTABLES="1"
 
 
 #session
-ip=$(timeout 3 termux-wifi-connectioninfo | grep ip | awk -F'"' '{print $4}')
+ip=$(timeout 1s termux-wifi-connectioninfo | grep ip | awk -F'"' '{print $4}')
 export IP="$ip"
 export USER="dag"
 
