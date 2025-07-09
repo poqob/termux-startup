@@ -1,17 +1,87 @@
-i created a startup program for termux with using termux api!
+# Termux Startup
 
-put all your startup executables into exec directory. Do not forget to make them
-runnable with chmod!
+A customizable startup program for [Termux](https://termux.com/) that leverages the Termux API to automate tasks, display information, and run user scripts or extensions on each new session.
 
-example: 
-chmod +x exec/*
+## Features
 
-you can add your extensions to the path extensions and call them in the startup.sh file.
+- **Automatic Startup**: Runs custom scripts and extensions every time a new Termux session starts.
+- **User Executables**: Place your own scripts in the `exec/` directory to run them automatically.
+- **Extensions Support**: Easily add and call extension scripts (e.g., camera, SSH) from the `extensions/` directory.
+- **Custom Banner**: Displays a personalized welcome banner.
+- **Session Info**: Shows connection details and can take/display a photo on startup.
+- **Configurable Options**: Control behavior via environment variables in `configuration.sh`.
 
-for opening new session run $NEW
+## Installation
 
-for configure the options to run executables or print yourself to the console:
-run nano $CONF
-then change the #variable section.
-note: the value '1' is standing for true, '0' is representing value false.
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/poqob/termux-startup.git
+   cd termux-startup
+   ```
+
+2. **Run the setup script** (installs dependencies and sets permissions):
+   ```bash
+   bash setup.sh
+   ```
+
+3. **(Optional) Add to `.bashrc`** to start automatically:
+   ```bash
+   echo "bash \$HOME/termux-startup/startup.sh" >> ~/.bashrc
+   ```
+
+## Usage
+
+- **Add your executables**:  
+  Place your scripts in the `exec/` directory.  
+  Make them executable:
+  ```bash
+  chmod +x exec/*
+  ```
+
+- **Add extensions**:  
+  Place extension scripts in the `extensions/` directory.  
+  Call them from `startup.sh` as needed.
+
+- **Configuration**:  
+  Edit `configuration.sh` to set options:
+  - `RUN_EXECUTABLES=1` to enable running scripts in `exec/`
+  - `SHOW_PICTURE=1` to take and display a photo on startup
+  - `PORT=2220` to set the SSH port
+
+  You can edit with:
+  ```bash
+  nano $CONF
+  ```
+
+- **Start a new session manually**:
+  ```bash
+  $NEW
+  ```
+
+## Directory Structure
+
+```
+termux-startup/
+├── banner.sh
+├── configuration.sh
+├── exec/
+│   ├── test.sh
+│   ├── test1.sh
+│   └── test2.sh
+├── extensions/
+│   ├── camera.sh
+│   └── connections.sh
+├── setup.sh
+├── startup.sh
+└── LICENSE
+```
+
+## Example Extensions
+
+- **Camera**: Takes a photo and displays it (requires `viu` and Termux API).
+- **Connections**: Starts SSH server and prints session info.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 

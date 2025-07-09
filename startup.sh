@@ -1,18 +1,13 @@
 #!/bin/bash
+
+# startup.sh
 clear
-
-
 source $CONF
-
-#termux-tts-speak "günaydın efendimiz"
-#cat $STARTUP/_.boot
-#echo $'\nEsenlikler!'
 $STARTUP/banner.sh
 $STARTUP/extensions/camera.sh 
 $STARTUP/extensions/connections.sh 
 
-
-#run user defined executable folder scripts.
+#run user defined executable scripts if $RUN_EXECUTABLES is set to 1
 EXEC_DIR="$STARTUP/exec"
 
 # Loop through all .sh files or executable files in the directory
